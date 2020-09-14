@@ -1,7 +1,5 @@
 
-<!-- elimina dalla tabella pagamenti la riga con id 8 -->
-
-
+elimina dalla tabella pagamenti la riga con id 8
 <?php
     $servername = "localhost";
     $username = "AndrePirre";
@@ -18,23 +16,31 @@
             WHERE id = 8
     ";
     $result = $conn->query($sql);
-    if ($result && $result->num_rows > 0) {
-        // VERSIONE 2
-        echo '<ul>';
 
-        while($row = $result->fetch_assoc()) {
+    if ($results === true) {
+        echo 'deleted.';
+    }else {
 
-            if($row['id'] == 7) {
-                echo '<li style="font-weight: bold;">';
-            } else {
-                    echo '<li> ';
-            }
-
-                echo $row['id'] ." - " .$row['status'] ." - " .$row['price'];
-                echo '</li> ';
-        }
-
-            echo "</ul>";
+        echo 'Error with deletion';
+        print_r($result);
+    }
+    // if ($result && $result->num_rows > 0) {
+    //     // VERSIONE 2
+    //     echo '<ul>';
+    //
+    //     while($row = $result->fetch_assoc()) {
+    //
+    //         if($row['id'] == 7) {
+    //             echo '<li style="font-weight: bold;">';
+    //         } else {
+    //                 echo '<li> ';
+    //         }
+    //
+    //             echo $row['id'] ." - " .$row['status'] ." - " .$row['price'];
+    //             echo '</li> ';
+    //     }
+    //
+    //         echo "</ul>";
     }else {
         print_r($result);
     }
